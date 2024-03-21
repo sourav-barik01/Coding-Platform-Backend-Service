@@ -1,1 +1,1 @@
-<!-- Coding Platform Problem Setting Service -->
+Coding Platform Problem Setting Service
