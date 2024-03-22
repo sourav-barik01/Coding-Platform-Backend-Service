@@ -7,6 +7,8 @@ const apiRouter = require('./routes');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
+
+// If any route comes and start route /api; we map it to apiRouter
 app.use('/api', apiRouter);
 
 app.get('/ping', (req, res) => {
