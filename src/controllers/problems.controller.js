@@ -22,8 +22,18 @@ async function addProblem(req, res, next) {
     }
 }
 
-function getProblem(req, res, next) {
-
+async function getProblem(req, res, next) {
+    try {
+        const problem = await problemService.getProblem(req.params.id);
+        return res.status(200).json({
+            success: true,
+            message: 'Successfully Fetched a Problem',
+            error: {},
+            data: problem
+        });
+    } catch (error) {
+        next(error);
+    }
 }
 
 async function getProblems(req, res, next) {
