@@ -22,19 +22,29 @@ async function addProblem(req, res, next) {
     }
 }
 
-function getProblem(req, res) {
+function getProblem(req, res, next) {
 
 }
 
-function getProblems(req, res) {
-    
+async function getProblems(req, res, next) {
+    try {
+        const response = await problemService.getAllProblems();
+        return res.status(200).json({
+            success: true,
+            message: 'Successfully Fetched All Problems',
+            error: {},
+            data: response
+        });
+    } catch (error) {
+        next(error);
+    }
 }
 
-function updateProblem(req, res) {
+function updateProblem(req, res, next) {
 
 }
 
-function deleteProblem(req, res) {
+function deleteProblem(req, res, next) {
     
 }
 
